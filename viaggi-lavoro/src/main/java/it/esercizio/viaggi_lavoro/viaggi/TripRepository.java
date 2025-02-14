@@ -1,9 +1,9 @@
-package it.esercizio.viaggi_lavoro.dipendenti;
+package it.esercizio.viaggi_lavoro.viaggi;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface DipendentRepository extends JpaRepository<Dipendent, Long> {
+public interface TripRepository extends JpaRepository<Trip, Long> {
 }

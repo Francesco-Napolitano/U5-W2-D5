@@ -1,4 +1,4 @@
-package it.esercizio.viaggi_lavoro.viaggio;
+package it.esercizio.viaggi_lavoro.viaggi;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "Trip")
+@Table(name = "viaggi")
 public class Trip {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)

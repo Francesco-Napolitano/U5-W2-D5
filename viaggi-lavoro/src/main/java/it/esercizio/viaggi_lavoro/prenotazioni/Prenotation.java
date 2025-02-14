@@ -1,6 +1,6 @@
-package it.esercizio.viaggi_lavoro.prenotazione;
+package it.esercizio.viaggi_lavoro.prenotazioni;
 
-import it.esercizio.viaggi_lavoro.viaggio.Trip;
+import it.esercizio.viaggi_lavoro.viaggi.Trip;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "prenotazione", uniqueConstraints = @UniqueConstraint(columnNames = {
+@Table(name = "prenotazioni", uniqueConstraints = @UniqueConstraint(columnNames = {
         "dipendente_id", "data_richiesta"
 }))
 public class Prenotation {

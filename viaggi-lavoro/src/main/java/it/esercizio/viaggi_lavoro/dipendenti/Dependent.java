@@ -1,6 +1,6 @@
 package it.esercizio.viaggi_lavoro.dipendenti;
 
-import it.esercizio.viaggi_lavoro.prenotazione.Prenotation;
+import it.esercizio.viaggi_lavoro.prenotazioni.Prenotation;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,8 +12,8 @@ import java.util.Set;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "dipendente")
-public class Dipendent {
+@Table(name = "dipendenti")
+public class Dependent {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
