@@ -54,8 +54,13 @@ public class TripService {
         tripRepository.deleteById(id);
     }
 
+    //operazione UPDATE stato
 
-
+    public Trip updateStato(Long id, Stato stato) {
+        Trip trip = tripRepository.findById(id).orElseThrow();
+        trip.setStato(stato);
+        return tripRepository.save(trip);
+    }
 
 
 }
