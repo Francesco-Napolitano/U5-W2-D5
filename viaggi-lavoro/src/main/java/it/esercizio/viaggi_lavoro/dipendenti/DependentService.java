@@ -1,6 +1,7 @@
 package it.esercizio.viaggi_lavoro.dipendenti;
 
 import it.esercizio.viaggi_lavoro.prenotazioni.Prenotation;
+import it.esercizio.viaggi_lavoro.prenotazioni.PrenotationRepository;
 import it.esercizio.viaggi_lavoro.viaggi.Trip;
 import it.esercizio.viaggi_lavoro.viaggi.TripRepository;
 import it.esercizio.viaggi_lavoro.viaggi.TripService;
@@ -13,6 +14,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
+import java.time.LocalDate;
+
 @Service
 @RequiredArgsConstructor
 @Validated
@@ -22,6 +25,9 @@ public class DependentService {
 
     @Autowired
     private final TripRepository tripRepository;
+
+    @Autowired
+    private final PrenotationRepository prenotationRepository;
 
     //operazione GET ALL
     public Page<Dependent> getDipendents(int page, int size, String sort) {
@@ -45,18 +51,14 @@ public class DependentService {
     }
 
     public void assignDependentToTrip(Long dependentId, Long tripId) {
-    Dependent dependent = dependentRepository.findById(dependentId).orElseThrow();
-    Trip trip = tripRepository.findById(tripId).orElseThrow();
+        Trip trip = tripRepository.findById(tripId).orElseThrow();
 
-    // Create a new Prenotation instance
-    Prenotation prenotation = new Prenotation();
-    prenotation.setDependent(dependent);
-    prenotation.setTrip(trip);
-
-    // Save the Prenotation instance
-    prenotationRepository.save(prenotation);
-}
-
+        Prenotation prenotation = new Prenotation();
+        prenotation.setNote("");
+        prenotation.setData_richiesta(LocalDate.now());
+        prenotation.setTrip(trip);
+        prenotationRepository.save(prenotation);
+    }
 
 
     //operazione DELETE by id

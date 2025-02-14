@@ -42,6 +42,7 @@ public class DependentController {
         return dependentService.findByIdAndUpdate(body, id);
     }
 
+    //in grado di assegnare un dipendente ad un viaggio
     @PutMapping("/{id}/trips/{tripId}")
     public void assignDependentToTrip(@PathVariable Long id, @PathVariable Long tripId) {
         dependentService.assignDependentToTrip(id, tripId);

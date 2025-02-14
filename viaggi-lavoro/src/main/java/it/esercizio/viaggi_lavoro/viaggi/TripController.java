@@ -14,6 +14,9 @@ public class TripController {
     @Autowired
     TripService tripService;
 
+    @Autowired
+    TripRepository tripRepository;
+
     //operazione POST
     @PostMapping("")
     @ResponseStatus(HttpStatus.CREATED)
@@ -50,4 +53,13 @@ public class TripController {
     public void findByIdAndDelete(@PathVariable Long id) {
         tripService.findByIdAndDelete(id);
     }
+
+    @PutMapping("/{id}/stato")
+    public Trip updateStato(@PathVariable Long id, @RequestBody Stato stato) {
+        Trip trip = tripRepository.findById(id).orElseThrow();
+        trip.setStato(stato);
+        return tripRepository.save(trip);
+
+    }
+
 }
